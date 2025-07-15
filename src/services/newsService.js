@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const NEWSAPI_KEY = import.meta.env.VITE_NEWSAPI_KEY
+// Safely access environment variable
+const NEWSAPI_KEY = import.meta.env?.VITE_NEWSAPI_KEY || process.env.VITE_NEWSAPI_KEY
 const NEWSAPI_BASE_URL = 'https://newsapi.org/v2'
 
 // Check if API key is available
