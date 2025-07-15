@@ -3,19 +3,28 @@ import axios from 'axios'
 const NEWSAPI_KEY = import.meta.env.VITE_NEWSAPI_KEY
 const NEWSAPI_BASE_URL = 'https://newsapi.org/v2'
 
+// Check if API key is available
+if (!NEWSAPI_KEY) {
+  console.error('VITE_NEWSAPI_KEY environment variable is not set. Please add your NewsAPI key to your environment variables.')
+}
+
 class NewsService {
   constructor() {
     this.api = axios.create({
       baseURL: NEWSAPI_BASE_URL,
       timeout: 10000,
       headers: {
-        'X-Api-Key': NEWSAPI_KEY,
+        'X-Api-Key': NEWSAPI_KEY || '',
       },
     })
   }
 
   async getNews(category = 'all', page = 1, pageSize = 20) {
     try {
+      if (!NEWSAPI_KEY) {
+        throw new Error('NewsAPI key is not configured. Please add VITE_NEWSAPI_KEY to your environment variables.')
+      }
+      
       const params = {
         page,
         pageSize,
@@ -34,6 +43,10 @@ class NewsService {
 
   async searchNews(query, category = 'all', page = 1, pageSize = 20) {
     try {
+      if (!NEWSAPI_KEY) {
+        throw new Error('NewsAPI key is not configured. Please add VITE_NEWSAPI_KEY to your environment variables.')
+      }
+      
       const params = {
         q: query,
         page,
