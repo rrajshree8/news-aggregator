@@ -17,5 +17,12 @@ export default defineConfig({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     'process.env.VITE_NEWSAPI_KEY': JSON.stringify(process.env.VITE_NEWSAPI_KEY),
   },
-  envPrefix: 'VITE_'
+  envPrefix: 'VITE_',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
 })
