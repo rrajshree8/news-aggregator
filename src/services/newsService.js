@@ -4,6 +4,14 @@ import axios from 'axios'
 const NEWSAPI_KEY = import.meta.env?.VITE_NEWSAPI_KEY || process.env.VITE_NEWSAPI_KEY
 const NEWSAPI_BASE_URL = 'https://newsapi.org/v2'
 
+// Debug environment variables
+console.log('Environment check:', {
+  importMetaEnv: import.meta.env,
+  processEnv: process.env,
+  newsApiKey: NEWSAPI_KEY ? 'SET' : 'NOT SET',
+  nodeEnv: process.env.NODE_ENV
+})
+
 // Check if API key is available
 if (!NEWSAPI_KEY) {
   console.error('VITE_NEWSAPI_KEY environment variable is not set. Please add your NewsAPI key to your environment variables.')
