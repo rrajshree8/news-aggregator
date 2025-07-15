@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // Safely access environment variable
-const NEWSAPI_KEY = import.meta.env?.VITE_NEWSAPI_KEY || process.env.VITE_NEWSAPI_KEY
+const NEWSAPI_KEY = import.meta.env?.VITE_NEWSAPI_KEY || process.env.VITE_NEWSAPI_KEY || window.__ENV__?.VITE_NEWSAPI_KEY
 const NEWSAPI_BASE_URL = 'https://newsapi.org/v2'
 
 // Debug environment variables
@@ -9,7 +9,8 @@ console.log('Environment check:', {
   importMetaEnv: import.meta.env,
   processEnv: process.env,
   newsApiKey: NEWSAPI_KEY ? 'SET' : 'NOT SET',
-  nodeEnv: process.env.NODE_ENV
+  nodeEnv: process.env.NODE_ENV,
+  windowEnv: window.__ENV__
 })
 
 // Check if API key is available
