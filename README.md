@@ -26,7 +26,7 @@ A beautiful, responsive news aggregator built with React, Vite, and Tailwind CSS
 
 ## 🚀 Live Demo
 
-[View Live Demo]((https://news-aggregator-rrajshree8s-projects.vercel.app/))
+[View Live Demo]([https://news-aggregator-rrajshree8s-projects.vercel.app/])
 
 ## 🛠️ Tech Stack
 
